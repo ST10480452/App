@@ -50,6 +50,7 @@ class CaloriesActivity : AppCompatActivity() {
         val weekly = Preferences.calorieWeeklyCount
         val loggedToday = Preferences.isCalorieLoggedToday()
         
+        binding.txtDate.text = getCurrentDateString()
         binding.txtCalGoal.text = "Daily target: $goal calories"
         binding.txtWeeklyCount.text = "$weekly/7 days on target"
         
@@ -78,5 +79,11 @@ class CaloriesActivity : AppCompatActivity() {
             }
             .setNegativeButton("Cancel", null)
             .show()
+    }
+
+    private fun getCurrentDateString(): String {
+        val calendar = java.util.Calendar.getInstance()
+        val months = arrayOf("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+        return "Today: ${months[calendar.get(java.util.Calendar.MONTH)]} ${calendar.get(java.util.Calendar.DAY_OF_MONTH)}, ${calendar.get(java.util.Calendar.YEAR)}"
     }
 }

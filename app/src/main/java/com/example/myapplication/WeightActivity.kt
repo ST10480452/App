@@ -22,6 +22,8 @@ class WeightActivity : AppCompatActivity() {
             finish()
         }
 
+        binding.btnChangeStarting.setOnClickListener { showChangeStartingDialog() }
+        binding.btnChangeGoal.setOnClickListener { showChangeGoalDialog() }
         binding.btnUpdateWeight.setOnClickListener { showUpdateDialog() }
     }
 
@@ -31,13 +33,19 @@ class WeightActivity : AppCompatActivity() {
         val current = Preferences.currentWeight
         val lost = start - current
 
+        // Display current date
+        val calendar = java.util.Calendar.getInstance()
+        val months = arrayOf("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+        val dateStr = "Today: ${months[calendar.get(java.util.Calendar.MONTH)]} ${calendar.get(java.util.Calendar.DAY_OF_MONTH)}, ${calendar.get(java.util.Calendar.YEAR)}"
+        binding.txtDate.text = dateStr
+
         binding.txtStarting.text = "Starting weight: ${start}kg"
         binding.txtGoal.text = "Goal weight: ${goal}kg"
         binding.txtCurrent.text = "Current weight: ${current}kg"
         binding.txtProgress.text = "Progress: -${"%.1f".format(lost)}kg since start"
         binding.txtProgress.setTextColor(
-            if (lost > 0) ContextCompat.getColor(this, R.color.white) 
-            else ContextCompat.getColor(this, R.color.gray_medium)
+            if (lost > 0) androidx.core.content.ContextCompat.getColor(this, R.color.white) 
+            else androidx.core.content.ContextCompat.getColor(this, R.color.gray_medium)
         )
     }
 
@@ -53,6 +61,46 @@ class WeightActivity : AppCompatActivity() {
                 val v = input.text.toString().toFloatOrNull()
                 if (v != null) {
                     Preferences.currentWeight = v
+                }
+                updateUIFromPrefs()
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    private fun showChangeStartingDialog() {
+        val input = android.widget.EditText(this)
+        input.hint = "Enter starting weight (kg)"
+        input.inputType = android.text.InputType.TYPE_CLASS_NUMBER or android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL
+        input.setText(Preferences.startingWeight.toString())
+
+        AlertDialog.Builder(this)
+            .setTitle("Change Starting Weight")
+            .setView(input)
+            .setPositiveButton("Save") { _, _ ->
+                val v = input.text.toString().toFloatOrNull()
+                if (v != null) {
+                    Preferences.startingWeight = v
+                }
+                updateUIFromPrefs()
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+
+    private fun showChangeGoalDialog() {
+        val input = android.widget.EditText(this)
+        input.hint = "Enter goal weight (kg)"
+        input.inputType = android.text.InputType.TYPE_CLASS_NUMBER or android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL
+        input.setText(Preferences.goalWeight.toString())
+
+        AlertDialog.Builder(this)
+            .setTitle("Change Goal Weight")
+            .setView(input)
+            .setPositiveButton("Save") { _, _ ->
+                val v = input.text.toString().toFloatOrNull()
+                if (v != null) {
+                    Preferences.goalWeight = v
                 }
                 updateUIFromPrefs()
             }

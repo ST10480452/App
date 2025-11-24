@@ -19,6 +19,16 @@
         android:paddingEnd="12dp"
         style="@style/Widget.App.Button" />
 
+    <TextView
+        android:id="@+id/txtDate"
+        android:text="Today: Nov 24, 2025"
+        android:textSize="16sp"
+        android:textColor="@color/gray_medium"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

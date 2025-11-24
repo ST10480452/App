@@ -43,6 +43,11 @@ class WorkoutActivity : AppCompatActivity() {
         binding = ActivityWorkoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Display current date
+        val calendar = java.util.Calendar.getInstance()
+        val months = arrayOf("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+        binding.txtDate.text = "Today: ${months[calendar.get(java.util.Calendar.MONTH)]} ${calendar.get(java.util.Calendar.DAY_OF_MONTH)}, ${calendar.get(java.util.Calendar.YEAR)}"
+
         // default
         showGroup(currentGroup)
 

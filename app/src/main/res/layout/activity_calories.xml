@@ -25,6 +25,15 @@
         android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/txtDate"
+        android:text="Today: Nov 24, 2025"
+        android:textSize="16sp"
+        android:textColor="@color/gray_medium"
+        android:layout_marginBottom="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
         android:id="@+id/txtCalGoal"
         android:text="Daily target: 1400 calories"
         android:textColor="@color/white"

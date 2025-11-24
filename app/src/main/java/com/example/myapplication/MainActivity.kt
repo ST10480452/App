@@ -16,6 +16,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Display current date
+        binding.txtDate.text = getCurrentDateString()
+
         // App title display
 
         binding.btnSteps.setOnClickListener {
@@ -33,5 +36,11 @@ class MainActivity : AppCompatActivity() {
         binding.btnWeight.setOnClickListener {
             startActivity(Intent(this, WeightActivity::class.java))
         }
+    }
+
+    private fun getCurrentDateString(): String {
+        val calendar = java.util.Calendar.getInstance()
+        val months = arrayOf("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
+        return "Today: ${months[calendar.get(java.util.Calendar.MONTH)]} ${calendar.get(java.util.Calendar.DAY_OF_MONTH)}, ${calendar.get(java.util.Calendar.YEAR)}"
     }
 }

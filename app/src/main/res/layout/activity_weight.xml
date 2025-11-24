@@ -25,6 +25,21 @@
         android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/txtDate"
+        android:text="Today: Nov 24, 2025"
+        android:textSize="16sp"
+        android:textColor="@color/gray_medium"
+        android:layout_marginBottom="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+    <TextView
         android:id="@+id/txtStarting"
         android:text="Starting weight: 85kg"
         android:textSize="20sp"
@@ -32,14 +47,46 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <Button
+        android:id="@+id/btnChangeStarting"
+        android:text="Edit"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:textSize="12sp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        style="@style/Widget.App.Button" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center">
+
     <TextView
         android:id="@+id/txtGoal"
         android:text="Goal weight: 75kg"
         android:textSize="20sp"
         android:textColor="@color/white"
-        android:layout_marginTop="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btnChangeGoal"
+        android:text="Edit"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:textSize="12sp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        style="@style/Widget.App.Button" />
+
+    </LinearLayout>
 
     <View
         android:layout_marginTop="12dp"
