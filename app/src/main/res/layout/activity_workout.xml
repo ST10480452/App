@@ -36,7 +36,7 @@
             style="@style/Widget.App.Button" />
 
         <Button
-            android:id="@+id/btnBack"
+            android:id="@+id/btnBackMuscle"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="48dp"

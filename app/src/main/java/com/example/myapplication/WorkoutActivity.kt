@@ -51,7 +51,7 @@ class WorkoutActivity : AppCompatActivity() {
         }
 
         binding.btnChest.setOnClickListener { showGroup("Chest") }
-        binding.btnBack.setOnClickListener { showGroup("Back") }
+        binding.btnBackMuscle.setOnClickListener { showGroup("Back") }
         binding.btnLegs.setOnClickListener { showGroup("Legs") }
         binding.btnArms.setOnClickListener { showGroup("Arms") }
 
