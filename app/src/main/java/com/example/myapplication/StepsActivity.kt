@@ -16,16 +16,23 @@ class StepsActivity : AppCompatActivity() {
 
         updateUI()
 
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
+
         binding.btnChangeGoal.setOnClickListener {
             showGoalDialog()
         }
 
         binding.btnComplete.setOnClickListener {
-            val currentStatus = Preferences.stepsCompletedToday
-            Preferences.stepsCompletedToday = !currentStatus
-            if (!currentStatus) {
-                Preferences.stepsStreak = Preferences.stepsStreak + 1
+            if (Preferences.isStepsCompletedToday()) {
+                android.widget.Toast.makeText(this, "Already marked today!", android.widget.Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
+            
+            Preferences.stepsCompletedToday = true
+            Preferences.stepsStreak = Preferences.stepsStreak + 1
+            Preferences.lastStepsCompletionDate = Preferences.getTodayDate()
             updateUI()
         }
     }
@@ -33,11 +40,12 @@ class StepsActivity : AppCompatActivity() {
     private fun updateUI() {
         val goal = Preferences.stepsGoal
         val streak = Preferences.stepsStreak
-        val completed = Preferences.stepsCompletedToday
+        val completedToday = Preferences.isStepsCompletedToday()
         
         binding.txtGoal.text = "Target: $goal steps"
         binding.txtStreak.text = "You've hit steps $streak days in a row"
-        binding.btnComplete.text = if (completed) "✓ Goal Hit Today" else "Hit Today's Goal"
+        binding.btnComplete.text = if (completedToday) "✓ Goal Hit Today" else "Hit Today's Goal"
+        binding.btnComplete.isEnabled = !completedToday
     }
 
     private fun showGoalDialog() {

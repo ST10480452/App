@@ -58,6 +58,32 @@ object Preferences {
         get() = prefs.getFloat(KEY_CURRENT_WEIGHT, 83f)
         set(v) = prefs.edit().putFloat(KEY_CURRENT_WEIGHT, v).apply()
 
+    // Date tracking for daily limits
+    private const val KEY_LAST_STEPS_DATE = "last_steps_date"
+    private const val KEY_LAST_CALORIE_DATE = "last_calorie_date"
+
+    var lastStepsCompletionDate: String
+        get() = prefs.getString(KEY_LAST_STEPS_DATE, "") ?: ""
+        set(v) = prefs.edit().putString(KEY_LAST_STEPS_DATE, v).apply()
+
+    var lastCalorieLogDate: String
+        get() = prefs.getString(KEY_LAST_CALORIE_DATE, "") ?: ""
+        set(v) = prefs.edit().putString(KEY_LAST_CALORIE_DATE, v).apply()
+
+    // Check if action was already done today
+    fun getTodayDate(): String {
+        val calendar = java.util.Calendar.getInstance()
+        return "${calendar.get(java.util.Calendar.YEAR)}-${calendar.get(java.util.Calendar.MONTH)+1}-${calendar.get(java.util.Calendar.DAY_OF_MONTH)}"
+    }
+
+    fun isStepsCompletedToday(): Boolean {
+        return lastStepsCompletionDate == getTodayDate()
+    }
+
+    fun isCalorieLoggedToday(): Boolean {
+        return lastCalorieLogDate == getTodayDate()
+    }
+
     // Generic helpers if needed (per-day statuses)
     fun setBooleanKey(key: String, value: Boolean) = prefs.edit().putBoolean(key, value).apply()
     fun getBooleanKey(key: String, default: Boolean = false) = prefs.getBoolean(key, default)

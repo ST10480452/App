@@ -18,6 +18,10 @@ class WeightActivity : AppCompatActivity() {
         // load from prefs:
         updateUIFromPrefs()
 
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
+
         binding.btnUpdateWeight.setOnClickListener { showUpdateDialog() }
     }
 

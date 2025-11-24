@@ -17,16 +17,30 @@ class CaloriesActivity : AppCompatActivity() {
         // Load saved prefs
         updateUIFromPrefs()
 
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
+
         binding.btnChangeCalGoal.setOnClickListener { showChangeGoalDialog() }
 
         binding.btnWithin.setOnClickListener {
+            if (Preferences.isCalorieLoggedToday()) {
+                android.widget.Toast.makeText(this, "Already logged today!", android.widget.Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             // mark today as within target
             Preferences.calorieWeeklyCount = Preferences.calorieWeeklyCount + 1
+            Preferences.lastCalorieLogDate = Preferences.getTodayDate()
             updateUIFromPrefs()
         }
 
         binding.btnOver.setOnClickListener {
+            if (Preferences.isCalorieLoggedToday()) {
+                android.widget.Toast.makeText(this, "Already logged today!", android.widget.Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             // mark today as over target (no increment)
+            Preferences.lastCalorieLogDate = Preferences.getTodayDate()
             updateUIFromPrefs()
         }
     }
@@ -34,8 +48,17 @@ class CaloriesActivity : AppCompatActivity() {
     private fun updateUIFromPrefs() {
         val goal = Preferences.calorieGoal
         val weekly = Preferences.calorieWeeklyCount
+        val loggedToday = Preferences.isCalorieLoggedToday()
+        
         binding.txtCalGoal.text = "Daily target: $goal calories"
         binding.txtWeeklyCount.text = "$weekly/7 days on target"
+        
+        binding.btnWithin.isEnabled = !loggedToday
+        binding.btnOver.isEnabled = !loggedToday
+        
+        if (loggedToday) {
+            binding.txtWeeklyCount.text = "$weekly/7 days on target\n(Already logged today)"
+        }
     }
 
     private fun showChangeGoalDialog() {

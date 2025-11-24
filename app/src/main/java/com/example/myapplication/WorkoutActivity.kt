@@ -46,6 +46,10 @@ class WorkoutActivity : AppCompatActivity() {
         // default
         showGroup(currentGroup)
 
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
+
         binding.btnChest.setOnClickListener { showGroup("Chest") }
         binding.btnBack.setOnClickListener { showGroup("Back") }
         binding.btnLegs.setOnClickListener { showGroup("Legs") }
