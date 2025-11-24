@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Accountable</string>
+    <string name="steps">Steps</string>
+    <string name="calories">Calories</string>
+    <string name="workout">Workout</string>
+    <string name="weight">Weight</string>
+    <string name="onboarding_image">Onboarding artwork</string>
+</resources>

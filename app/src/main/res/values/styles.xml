@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Black background is the default, adaptively supports dark/light, DayNight uses system -->
+        <item name="android:colorBackground">@color/background_black</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+</resources>

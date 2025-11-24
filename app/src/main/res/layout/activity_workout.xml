@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="top"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_black"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnChest"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Chest"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Back" android:layout_height="match_parent"/>
+
+        <Button
+            android:id="@+id/btnLegs"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Legs"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/btnArms"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Arms"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtExercises"
+        android:layout_marginTop="18dp"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btnMarkWorkout"
+        android:layout_marginTop="24dp"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="Mark as completed" />
+
+</LinearLayout>
