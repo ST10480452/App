@@ -1,10 +1,9 @@
-package com.example.accountable
+package com.example.myapplication
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.accountable.databinding.ActivityMainBinding
-import com.example.myapplication.R
+import com.example.myapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,8 +16,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Onboarding image example (if you want to show it on main)
-        binding.imgOnboarding.setImageResource(R.drawable.accountable_onboarding)
+        // App title display
 
         binding.btnSteps.setOnClickListener {
             startActivity(Intent(this, StepsActivity::class.java))

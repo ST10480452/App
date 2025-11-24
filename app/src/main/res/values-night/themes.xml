@@ -1,7 +1,23 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.MyApplication" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <!-- Minimalist Black & White Theme (Night) - Same as day for consistency -->\n    <style name="Base.Theme.MyApplication" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Primary colors -->
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimaryContainer">@color/gray_darker</item>
+        <item name="colorOnPrimaryContainer">@color/white</item>
+        
+        <!-- Surface colors -->
+        <item name="colorSurface">@color/black</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="colorSurfaceVariant">@color/gray_dark</item>
+        <item name="colorOnSurfaceVariant">@color/gray_light</item>
+        
+        <!-- Background -->
+        <item name="android:colorBackground">@color/black</item>
+        <item name="colorOnBackground">@color/white</item>
+        
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/black</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
     </style>
 </resources>

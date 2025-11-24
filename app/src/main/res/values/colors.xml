@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="background_black">#000000</color>
+    <!-- Minimalist Black & White Theme -->
+    <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
-    <color name="gray">#888888</color>
+    <color name="gray_light">#CCCCCC</color>
+    <color name="gray_medium">#888888</color>
+    <color name="gray_dark">#333333</color>
+    <color name="gray_darker">#1A1A1A</color>
+    
+    <!-- Legacy colors for compatibility -->
+    <color name="background_black">#000000</color>
     <color name="dark_gray">#222222</color>
+    <color name="gray">#888888</color>
     <color name="green">#00AA00</color>
 </resources>

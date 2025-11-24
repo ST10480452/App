@@ -15,7 +15,7 @@
 
         <!-- MAIN ENTRY ACTIVITY -->
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.myapplication.MainActivity"
             android:exported="true">
 
             <intent-filter>
@@ -26,10 +26,10 @@
         </activity>
 
         <!-- OTHER PAGES -->
-        <activity android:name=".StepsActivity" />
-        <activity android:name=".CaloriesActivity" />
-        <activity android:name=".WorkoutActivity" />
-        <activity android:name=".WeightActivity" />
+        <activity android:name="com.example.myapplication.StepsActivity" />
+        <activity android:name="com.example.myapplication.CaloriesActivity" />
+        <activity android:name="com.example.myapplication.WorkoutActivity" />
+        <activity android:name="com.example.myapplication.WeightActivity" />
 
     </application>
 

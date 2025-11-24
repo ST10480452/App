@@ -1,16 +1,13 @@
-package com.example.accountable
+package com.example.myapplication
 
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.example.accountable.databinding.ActivityStepsBinding
+import com.example.myapplication.databinding.ActivityStepsBinding
 
 class StepsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityStepsBinding
-    private var stepsGoal = 10000
-    private var streak = 5
-    private var completedToday = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,30 +21,38 @@ class StepsActivity : AppCompatActivity() {
         }
 
         binding.btnComplete.setOnClickListener {
-            completedToday = !completedToday
-            if (completedToday) streak++
+            val currentStatus = Preferences.stepsCompletedToday
+            Preferences.stepsCompletedToday = !currentStatus
+            if (!currentStatus) {
+                Preferences.stepsStreak = Preferences.stepsStreak + 1
+            }
             updateUI()
         }
     }
 
     private fun updateUI() {
-        binding.txtGoal.text = "Target: $stepsGoal steps"
+        val goal = Preferences.stepsGoal
+        val streak = Preferences.stepsStreak
+        val completed = Preferences.stepsCompletedToday
+        
+        binding.txtGoal.text = "Target: $goal steps"
         binding.txtStreak.text = "You've hit steps $streak days in a row"
-
-        binding.btnComplete.text =
-            if (completedToday) "✓ Goal Hit Today" else "Hit Today's Goal"
+        binding.btnComplete.text = if (completed) "✓ Goal Hit Today" else "Hit Today's Goal"
     }
 
     private fun showGoalDialog() {
         val input = android.widget.EditText(this)
         input.hint = "Enter new goal"
+        input.inputType = android.text.InputType.TYPE_CLASS_NUMBER
 
         AlertDialog.Builder(this)
             .setTitle("Set Steps Goal")
             .setView(input)
             .setPositiveButton("Save") { _, _ ->
                 val newGoal = input.text.toString().toIntOrNull()
-                if (newGoal != null) stepsGoal = newGoal
+                if (newGoal != null) {
+                    Preferences.stepsGoal = newGoal
+                }
                 updateUI()
             }
             .setNegativeButton("Cancel", null)

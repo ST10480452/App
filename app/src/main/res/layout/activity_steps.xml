@@ -8,7 +8,7 @@
     android:padding="32dp">
 
     <TextView
-        android:id="@+id/txtGoaltGoal"
+        android:id="@+id/txtGoal"
         android:text="Target: 10000 steps"
         android:textColor="#FFFFFF"
         android:textSize="26sp"
@@ -20,7 +20,8 @@
         android:id="@+id/btnChangeGoal"
         android:text="Change Goal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        style="@style/Widget.App.Button" />
 
     <Button
         android:id="@+id/btnComplete"
@@ -28,7 +29,8 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginTop="32dp"
-        android:textSize="20sp" />
+        android:textSize="18sp"
+        style="@style/Widget.App.Button" />
 
     <TextView
         android:id="@+id/txtStreak"

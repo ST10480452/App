@@ -11,49 +11,67 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
 
         <Button
             android:id="@+id/btnChest"
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:layout_height="48dp"
+            android:layout_marginEnd="2dp"
             android:text="Chest"
-            android:layout_height="match_parent" />
+            android:textSize="14sp"
+            style="@style/Widget.App.Button" />
 
         <Button
             android:id="@+id/btnBack"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:text="Back" android:layout_height="match_parent"/>
+            android:layout_height="48dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:text="Back"
+            android:textSize="14sp"
+            style="@style/Widget.App.Button" />
 
         <Button
             android:id="@+id/btnLegs"
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:layout_height="48dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
             android:text="Legs"
-            android:layout_height="match_parent" />
+            android:textSize="14sp"
+            style="@style/Widget.App.Button" />
 
         <Button
             android:id="@+id/btnArms"
             android:layout_width="0dp"
             android:layout_weight="1"
+            android:layout_height="48dp"
+            android:layout_marginStart="2dp"
             android:text="Arms"
-            android:layout_height="match_parent" />
+            android:textSize="14sp"
+            style="@style/Widget.App.Button" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/txtExercises"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="24dp"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="16sp"
+        android:lineSpacingExtra="4dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/btnMarkWorkout"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:text="Mark as completed" />
+        android:text="Mark as completed"
+        style="@style/Widget.App.Button" />
 
 </LinearLayout>

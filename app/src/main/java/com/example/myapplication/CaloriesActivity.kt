@@ -1,9 +1,9 @@
-package com.example.accountable
+package com.example.myapplication
 
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.example.accountable.databinding.ActivityCaloriesBinding
+import com.example.myapplication.databinding.ActivityCaloriesBinding
 
 class CaloriesActivity : AppCompatActivity() {
 

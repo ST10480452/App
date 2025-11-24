@@ -1,9 +1,10 @@
-package com.example.accountable
+package com.example.myapplication
 
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.example.accountable.databinding.ActivityWeightBinding
+import androidx.core.content.ContextCompat
+import com.example.myapplication.databinding.ActivityWeightBinding
 
 class WeightActivity : AppCompatActivity() {
 
@@ -31,7 +32,8 @@ class WeightActivity : AppCompatActivity() {
         binding.txtCurrent.text = "Current weight: ${current}kg"
         binding.txtProgress.text = "Progress: -${"%.1f".format(lost)}kg since start"
         binding.txtProgress.setTextColor(
-            if (lost > 0) resources.getColor(R.color.green, theme) else resources.getColor(R.color.gray, theme)
+            if (lost > 0) ContextCompat.getColor(this, R.color.white) 
+            else ContextCompat.getColor(this, R.color.gray_medium)
         )
     }
 

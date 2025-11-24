@@ -21,10 +21,11 @@
         android:id="@+id/btnChangeCalGoal"
         android:text="Change Goal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        style="@style/Widget.App.Button" />
 
     <LinearLayout
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -34,14 +35,18 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="80dp"
-            android:text="✓ Stayed within" />
+            android:layout_marginEnd="4dp"
+            android:text="✓ Stayed within"
+            style="@style/Widget.App.Button" />
 
         <Button
             android:id="@+id/btnOver"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="80dp"
-            android:text="✗ Went over" />
+            android:layout_marginStart="4dp"
+            android:text="✗ Went over"
+            style="@style/Widget.App.Button" />
     </LinearLayout>
 
     <TextView

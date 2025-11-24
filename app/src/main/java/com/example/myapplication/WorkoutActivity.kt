@@ -1,8 +1,8 @@
-package com.example.accountable
+package com.example.myapplication
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.accountable.databinding.ActivityWorkoutBinding
+import com.example.myapplication.databinding.ActivityWorkoutBinding
 
 class WorkoutActivity : AppCompatActivity() {
 
